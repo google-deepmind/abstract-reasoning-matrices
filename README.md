@@ -1,3 +1,5 @@
+# Please note - the accompanying dataset will be made available soon and a link will be added to this readme.
+
 This data is made available for the purposes of non-commercial research only and is not to be used for any other purpose.
 
 # Directory and file organisation
