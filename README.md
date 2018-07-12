@@ -1,4 +1,4 @@
-# Please note - the accompanying dataset will be made available soon and a link will be added to this readme.
+# Please note - the accompanying dataset can be found [here](https://console.cloud.google.com/storage/browser/ravens-matrices) 
 
 This data is made available for the purposes of non-commercial research only and is not to be used for any other purpose.
 
