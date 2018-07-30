@@ -2,6 +2,18 @@
 
 This data is made available for the purposes of non-commercial research only and is not to be used for any other purpose.
 
+# UPDATE -- fix re: array shape and readability of the data
+
+Users have noted issues with readability of the data. This is caused by a mis-shaped numpy array upon loading. As noted below, images are of size 160x160x16. When loading the .npz, please reshape the array: 
+
+~~~~
+data = np.load("name.npz")
+image = data["image"].reshape(16, 160, 160)
+~~~~
+
+The first dimension of image now indexes the array into the correct panels, as is intended. This array should now depict readable images when plotted.
+
+
 # Directory and file organisation
 The parent data folder contains 8 sub-folders, corresponding to a particular generalisation regime:
 - neutral
