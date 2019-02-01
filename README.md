@@ -1,11 +1,11 @@
-# This repo points to data from the papers [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225); Barrett, Hill, Santoro et al. (2018) and [Learning to Make Analogies by Contrasting Abstract Relational Structures(https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al. (2019). The data can be found [here](https://console.cloud.google.com/storage/browser/ravens-matrices) 
+### This repo points to data from the papers [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225); Barrett, Hill, Santoro et al. (2018) and [Learning to Make Analogies by Contrasting Abstract Relational Structures](https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al. (2019). The data can be found [here](https://console.cloud.google.com/storage/browser/ravens-matrices) 
 
 This data is made available for the purposes of non-commercial research only and is not to be used for any other purpose.
 
 # Procedurally Generated Matrices (PGM) data
 From the paper [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225), Barrett, Hill, Santoro et al. 2018.
 
-# UPDATE -- fix re: array shape and readability of the data
+### UPDATE -- fix re: array shape and readability of the data
 
 Users have noted issues with readability of the data. This is caused by a mis-shaped numpy array upon loading. As noted below, images are of size 160x160x16. When loading the .npz, please reshape the array: 
 
