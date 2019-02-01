@@ -74,7 +74,7 @@ The generalisation splits are as follows:
 
 # Visual Analogy data
 
-From the paper [Learning to Make Analogies by Contrasting Abstract Relational Structures(https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al (2019).
+From the paper [Learning to Make Analogies by Contrasting Abstract Relational Structures](https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al (2019).
 
 This data can be found in the {analogies} subdirectory, which contains archived directories corresponding to the visual analogy problems described in the paper.
 
