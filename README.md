@@ -1,8 +1,11 @@
-# Please note - the accompanying dataset can be found [here](https://console.cloud.google.com/storage/browser/ravens-matrices) 
+### This repo points to data from the papers [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225); Barrett, Hill, Santoro et al. (2018) and [Learning to Make Analogies by Contrasting Abstract Relational Structures](https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al. (2019). The data can be found [here](https://console.cloud.google.com/storage/browser/ravens-matrices) 
 
 This data is made available for the purposes of non-commercial research only and is not to be used for any other purpose.
 
-# UPDATE -- fix re: array shape and readability of the data
+# Procedurally Generated Matrices (PGM) data
+From the paper [Measuring Abstract Reasoning in Neural Networks](https://arxiv.org/abs/1807.04225), Barrett, Hill, Santoro et al. 2018.
+
+### UPDATE -- fix re: array shape and readability of the data
 
 Users have noted issues with readability of the data. This is caused by a mis-shaped numpy array upon loading. As noted below, images are of size 160x160x16. When loading the .npz, please reshape the array: 
 
@@ -13,17 +16,16 @@ image = data["image"].reshape(16, 160, 160)
 
 The first dimension of image now indexes the array into the correct panels, as is intended. This array should now depict readable images when plotted.
 
-
-# Directory and file organisation
-The parent data folder contains 8 sub-folders, corresponding to a particular generalisation regime:
-- neutral
-- interpolation
-- extrapolation
-- attr.rel.pairs
-- attr.rels
-- attrs.pairs
-- attrs.shape.color
-- attrs.line.type
+## Directory and file organisation
+The parent data folder contains 8 archived directories, corresponding to a particular generalisation regime:
+- neutral.tar.gz
+- interpolation.tar.gz
+- extrapolation.tar.gz
+- attr.rel.pairs.tar.gz
+- attr.rels.tar.gz
+- attrs.pairs.tar.gz
+- attrs.shape.color.tar.gz
+- attrs.line.type.tar.gz
   
 Within each folder are 1.42M .npz files encoding the samples. The naming convention is: PGM_{split_type}_{train/test/val}_{id}.npz, where split_type is one of the 8 indicated above, train/test/val is the train, test, or validation set, and id is a numerical identifier for a particular matrix.
 
@@ -50,10 +52,10 @@ A saved array has the following structure:
 
 **target**: integer value denoting the target for the particular matrix (i.e., the index of the correct answer among the "choice" panels).
 
-# Notation 
+## Notation 
 $R$ denotes the set of relation types (progression, XOR, OR, AND, consistent union), $O$ denotes the object types (shape, line), and $A$ denotes the attribute types (size, colour, position, number). The structure of a matrix, $S$, is the set of triples $S=\{[r, o, a]\}$ that determine the challenge posed by a particular matrix. 
 
-# Generalisation split details
+## Generalisation split details
 The generalisation splits are as follows:
 
 - **neutral**: The structures encoding the matrices in both the training and testing sets contain any triples $[r, o, a]$ for $r \in R$, $o \in O$, and $a \in A$. Training and testing sets are disjoint, with separation occurring at the level of the input variables (i.e. pixel manifestations).
@@ -69,4 +71,21 @@ The generalisation splits are as follows:
 - **attrs.pairs**: $S$ contained at least two triples. There are 20 (unordered) viable pairs of attributes $(a_1, a_2)$ such that for some $r_i, o_i, ([r_1,o_1,a_1],[r_2,o_2,a_2])$ is a viable triple pair $([r_1,o_1,a_1],[r_2,o_2,a_2]) = (t_1, t_2)$. We allocated 16 of these pairs for training and four for testing. For a pair $(a_1, a_2)$ in the test set, $S$ in the training set contained triples with $a_1$ or $a_2$. In the test set, all $S$ contained triples with $a_1$ and $a_2$.
 
 - **attrs.shape.color**, **attrs.line.type**: Held-out attribute shape-colour or line-type. $S$ in the training set contained no triples with $o$=shape and $a$=colour. All structures governing puzzles in the test set contained at least one triple with $o$=shape and $a$=colour. For comparison, we included a similar split in which triples were held-out if $o$=line and $a$=type.
+
+# Visual Analogy data
+
+From the paper [Learning to Make Analogies by Contrasting Abstract Relational Structures(https://openreview.net/pdf?id=SylLYsCcFm); Hill, Santoro et al (2019).
+
+This data can be found in the {analogies} subdirectory, which contains archived directories corresponding to the visual analogy problems described in the paper.
+
+novel.domain.transfer.tar.gz
+novel.target.domain.line.type.tar.gz
+novel.target.domain.shape.color.tar.gz
+interpolation.tar.gz
+extrapolation.tar.gz
+
+Within each of these directories is a large number of .npz files. The filenames are of the form analogy_{split_type}_{train/test/val}_{lbc/normal}_{id}.npz, where split_type is the name of one of the corresponding directory, lbc/normal determines the nature of the incorrect answer candidates and id is a unique identifier for the file.
+
+
+
 
